@@ -1,348 +1,155 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-Mulazimet
+    Mulazimet | Uyghur Mulazimet
 {% endblock %}
 {% block content %}
-	<!-- hero section -->
-	<section id="hero">
+    <style>
+        .rtl {
+            direction: rtl;
+            text-align: right;
+        }
 
-		<div class="container-xl">
+        .ltr {
+            direction: ltr;
+        }
+    </style>
+    <!-- Banner Section-->
+    <section class="banner-section rtl">
+        <div class="auto-container">
+            <div class="row">
+                <div class="content-column col-lg-7 col-md-12 col-sm-12">
+                    <div class="inner-column wow fadeInUp" data-wow-delay="1000ms">
+                        <div class="title-box">
+                            <h3>ئۆز-ئارا ئىھتىياجنى قارشىلاش بىزنىڭ <span class="colored">غايىمىزدۇر!</span></h3>
+                            <div class="text">سىز ئۈچۈن ئەلا مۇلازىمەت سۇنۇشقا تىرىشىمىز.</div>
+                        </div>
 
-			<div class="row gy-4">
+                        <!-- Job Search Form -->
+                        <div class="job-search-form">
+                            <form action="#">
+                                <div class="row">
+                                    <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                                        <span class="icon flaticon-search-1"></span>
+                                        <input type="text" name="field_name"
+                                               placeholder="مۇلازىمەت ئىزدەڭ">
+                                    </div>
 
-				<div class="col-lg-8">
+                                    <!-- Form Group -->
+                                    <div class="form-group col-lg-2 col-md-12 col-sm-12 btn-box">
+                                        <button type="submit" class="theme-btn btn-style-one"><span class="btn-title">ئىزدەش</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Job Search Form -->
 
-					<!-- featured post large -->
-					<div class="post featured-post-lg">
-						<div class="details clearfix">
-							<a href="category.html" class="category-badge">Inspiration</a>
-							<h2 class="post-title"><a href="blog-single.html">5 Easy Ways You Can Turn Future Into Success</a></h2>
-							<ul class="meta list-inline mb-0">
-								<li class="list-inline-item"><a href="#">Katen Doe</a></li>
-								<li class="list-inline-item">29 March 2021</li>
-							</ul>
-						</div>
-						<a href="blog-single.html">
-							<div class="thumb rounded">
-								<div class="inner data-bg-image" data-bg-image="images/posts/featured-lg.jpg"></div>
-							</div>
-						</a>
-					</div>
 
-				</div>
+                    </div>
+                </div>
 
-				<div class="col-lg-4">
+                <div class="image-column col-lg-5 col-md-12 ltr">
+                    <div class="image-box">
+                        <figure class="main-image wow fadeIn" data-wow-delay="500ms"><img
+                                src="{% static 'images/resource/banner-img-1.png' %}"></figure>
 
-					<!-- post tabs -->
-					<div class="post-tabs rounded bordered">
-						<!-- tab navs -->
-						<ul class="nav nav-tabs nav-pills nav-fill" id="postsTab" role="tablist">
-							<li class="nav-item" role="presentation"><button aria-controls="popular" aria-selected="true" class="nav-link active" data-bs-target="#popular" data-bs-toggle="tab" id="popular-tab" role="tab" type="button">Popular</button></li>
-							<li class="nav-item" role="presentation"><button aria-controls="recent" aria-selected="false" class="nav-link" data-bs-target="#recent" data-bs-toggle="tab" id="recent-tab" role="tab" type="button">Recent</button></li>
-						</ul>
-						<!-- tab contents -->
-						<div class="tab-content" id="postsTabContent">
-							<!-- loader -->
-							<div class="lds-dual-ring"></div>
-							<!-- popular posts -->
-							<div aria-labelledby="popular-tab" class="tab-pane fade show active" id="popular" role="tabpanel">
-								<!-- post -->
-								<div class="post post-list-sm circle">
-									<div class="thumb circle">
-										<a href="blog-single.html">
-											<div class="inner">
-												<img src="{% static 'images/posts/tabs-1.jpg' %}" />
-											</div>
-										</a>
-									</div>
-									<div class="details clearfix">
-										<h6 class="post-title my-0"><a href="blog-single.html">3 Easy Ways To Make Your iPhone Faster</a></h6>
-										<ul class="meta list-inline mt-1 mb-0">
-											<li class="list-inline-item">29 March 2021</li>
-										</ul>
-									</div>
-								</div>
-								<!-- post -->
-								<div class="post post-list-sm circle">
-									<div class="thumb circle">
-										<a href="blog-single.html">
-											<div class="inner">
-												<img src="{% static 'images/posts/tabs-2.jpg' %}" />
-											</div>
-										</a>
-									</div>
-									<div class="details clearfix">
-										<h6 class="post-title my-0"><a href="blog-single.html">An Incredibly Easy Method That Works For All</a></h6>
-										<ul class="meta list-inline mt-1 mb-0">
-											<li class="list-inline-item">29 March 2021</li>
-										</ul>
-									</div>
-								</div>
-								<!-- post -->
-								<div class="post post-list-sm circle">
-									<div class="thumb circle">
-										<a href="blog-single.html">
-											<div class="inner">
-												<img src="{% static 'images/posts/tabs-3.jpg' %}" />
-											</div>
-										</a>
-									</div>
-									<div class="details clearfix">
-										<h6 class="post-title my-0"><a href="blog-single.html">10 Ways To Immediately Start Selling Furniture</a></h6>
-										<ul class="meta list-inline mt-1 mb-0">
-											<li class="list-inline-item">29 March 2021</li>
-										</ul>
-									</div>
-								</div>
-								<!-- post -->
-								<div class="post post-list-sm circle">
-									<div class="thumb circle">
-										<a href="blog-single.html">
-											<div class="inner">
-												<img src="{% static 'images/posts/tabs-4.jpg' %}" />
-											</div>
-										</a>
-									</div>
-									<div class="details clearfix">
-										<h6 class="post-title my-0"><a href="blog-single.html">15 Unheard Ways To Achieve Greater Walker</a></h6>
-										<ul class="meta list-inline mt-1 mb-0">
-											<li class="list-inline-item">29 March 2021</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<!-- recent posts -->
-							<div aria-labelledby="recent-tab" class="tab-pane fade" id="recent" role="tabpanel">
-								<!-- post -->
-								<div class="post post-list-sm circle">
-									<div class="thumb circle">
-										<a href="blog-single.html">
-											<div class="inner">
-												<img src="{% static 'images/posts/tabs-2.jpg' %}" />
-											</div>
-										</a>
-									</div>
-									<div class="details clearfix">
-										<h6 class="post-title my-0"><a href="blog-single.html">An Incredibly Easy Method That Works For All</a></h6>
-										<ul class="meta list-inline mt-1 mb-0">
-											<li class="list-inline-item">29 March 2021</li>
-										</ul>
-									</div>
-								</div>
-								<!-- post -->
-								<div class="post post-list-sm circle">
-									<div class="thumb circle">
-										<a href="blog-single.html">
-											<div class="inner">
-												<img src="{% static 'images/posts/tabs-1.jpg' %}" />
-											</div>
-										</a>
-									</div>
-									<div class="details clearfix">
-										<h6 class="post-title my-0"><a href="blog-single.html">3 Easy Ways To Make Your iPhone Faster</a></h6>
-										<ul class="meta list-inline mt-1 mb-0">
-											<li class="list-inline-item">29 March 2021</li>
-										</ul>
-									</div>
-								</div>
-								<!-- post -->
-								<div class="post post-list-sm circle">
-									<div class="thumb circle">
-										<a href="blog-single.html">
-											<div class="inner">
-												<img src="{% static 'images/posts/tabs-4.jpg' %}" />
-											</div>
-										</a>
-									</div>
-									<div class="details clearfix">
-										<h6 class="post-title my-0"><a href="blog-single.html">15 Unheard Ways To Achieve Greater Walker</a></h6>
-										<ul class="meta list-inline mt-1 mb-0">
-											<li class="list-inline-item">29 March 2021</li>
-										</ul>
-									</div>
-								</div>
-								<!-- post -->
-								<div class="post post-list-sm circle">
-									<div class="thumb circle">
-										<a href="blog-single.html">
-											<div class="inner">
-												<img src="{% static 'images/posts/tabs-3.jpg' %}" />
-											</div>
-										</a>
-									</div>
-									<div class="details clearfix">
-										<h6 class="post-title my-0"><a href="blog-single.html">10 Ways To Immediately Start Selling Furniture</a></h6>
-										<ul class="meta list-inline mt-1 mb-0">
-											<li class="list-inline-item">29 March 2021</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+                        <!-- Info BLock One -->
+                        <div class="info_block anm wow fadeIn" data-wow-delay="1000ms" data-speed-x="2"
+                             data-speed-y="2">
+                            <span class="icon flaticon-email-3"></span>
+                            <p>Work Inquiry From <br>Ali Tufan</p>
+                        </div>
 
-			</div>
 
-		</div>
+                        <!-- Info BLock Four -->
+                        <div class="info_block_four anm wow fadeIn" data-wow-delay="2500ms" data-speed-x="3"
+                             data-speed-y="3">
+                            <span class="icon flaticon-file"></span>
+                            <div class="inner">
+                                <p>Upload Your CV</p>
+                                <span class="sub-text">It only takes a few seconds</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Banner Section-->
 
-	</section>
+    <!-- Job Categories -->
+    <section class="job-categories">
+        <div class="auto-container">
+            <div class="sec-title text-center">
+                <h2>مۇلازىمەت تۈرلىرى</h2>
 
-	<!-- section main content -->
-	<section class="main-content">
-		<div class="container-xl">
+            </div>
 
-			<div class="row gy-4">
+            <div class="row wow fadeInUp">
 
-				<div class="col-lg-8">
+                {% for category in categorys %}
+
+
+                    <!-- Category Block -->
+                    <div class="category-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="content">
+                                <a href="{% url 'category_detail' category.id %}"><span
+                                        class="icon {{ category.icon_class }}"></span></a>
+                                <h4><a href="{% url 'category_detail' category.id %}">{{ category.name }}</a></h4>
+                                <p>{{ category.article_set.count }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- End Job Categories -->
 
 
 
+    <!-- News Section -->
+    <section class="news-section">
+        <div class="auto-container">
+            <div class="sec-title text-center">
+                <h2>ئەڭ يېڭى مۇلازىمەتلەر</h2>
+                <div class="text"></div>
+            </div>
 
-					<!-- section header -->
-					<div class="section-header">
-						<h3 class="section-title">Latest Posts</h3>
-						<img src="{% static 'images/wave.svg' %}" />
-					</div>
+            <div class="row wow fadeInUp">
+                {% for article in articles %}
 
-					<div class="padding-30 rounded bordered">
+                    <!-- News Block -->
+                    <div class="news-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                <figure class="image"><a href="{% url 'article_detail' article.id %}"><img
+                                        src="{{ article.image.url }}"/></a></figure>
+                            </div>
+                            <div class="lower-content">
+                                <ul class="post-meta">
+                                    <li class="ltr"><a
+                                            href="{% url 'article_detail' article.id %}">{{ article.datetime|date:"Y-m-d H:i" }}</a>
+                                    </li>
+                                    <li class="ltr"><a
+                                            href="{% url 'article_detail' article.id %}">{{ article.author.username }}</a>
+                                    </li>
+                                </ul>
+                                <h3><a href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h3>
+                                <a href="{% url 'article_detail' article.id %}"><p
+                                        class="text">{{ article.content|truncatewords:20 }}</p></a>
+                                <a href="{% url 'article_detail' article.id %}" class="read-more">تەپسىلاتى <i
+                                        class="fa fa-angle-left"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- End News Section -->
 
-						<div class="row">
-
-							<div class="col-md-12 col-sm-6">
-
-                                {% for article in articles %}
-
-
-
-								<div class="post post-list clearfix">
-									<div class="thumb rounded">
-										<span class="post-format-sm">
-											<i class="icon-picture"></i>
-										</span>
-										<a href="blog-single.html">
-											<div class="inner">
-												<img src="{{ article.image.url }}" />
-											</div>
-										</a>
-									</div>
-									<div class="details">
-										<ul class="meta list-inline mb-3">
-											<li class="list-inline-item"><a  href="#"><img style="max-height: 1.5rem" src="{{ article.author.image.url }}">   {{ article.author.user.username }}</a></li>
-											<li class="list-inline-item"><a href="#">{{ article.category.name }}</a></li>
-											<li class="list-inline-item">{{ article.datetime|date:"Y-m-d H:i" }}</li>
-										</ul>
-										<h5 class="post-title"><a href="blog-single.html">{{ article.title }}</a></h5>
-										<p class="excerpt mb-0">{{ article.content|truncatewords:30 }}</p>
-										<div class="post-bottom clearfix d-flex align-items-center">
-											<div class="social-share me-auto">
-												<button class="toggle-button icon-share"></button>
-												<ul class="icons list-unstyled list-inline mb-0">
-													<li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="fab fa-telegram-plane"></i></a></li>
-													<li class="list-inline-item"><a href="#"><i class="far fa-envelope"></i></a></li>
-												</ul>
-											</div>
-											<div class="more-button float-end">
-												<a href="blog-single.html"><span class="icon-options"></span></a>
-											</div>
-										</div>
-									</div>
-								</div>
-
-                                      {% endfor %}
-
-							</div>
-
-
-						</div>
-						<!-- load more button -->
-						<div class="text-center">
-							<button class="btn btn-simple">Load More</button>
-						</div>
-
-					</div>
-
-				</div>
-				<div class="col-lg-4">
-
-					<!-- sidebar -->
-					<div class="sidebar">
-
-
-
-						<!-- widget categories -->
-						<div class="widget rounded">
-							<div class="widget-header text-center">
-								<h3 class="widget-title">Categories</h3>
-								<img src="{% static 'images/wave.svg' %}" />
-							</div>
-							<div class="widget-content">
-								<ul class="list">
-
-                                    {% for category in categorys %}
-
-
-
-									<li><a href="#">{{ category.name }}</a><span>{{ category.article_set.count }}</span></li>
-								 {% endfor %}
-								</ul>
-							</div>
-
-						</div>
-
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-	</section>
-
-	<!-- instagram feed -->
-	<div class="instagram">
-		<div class="container-xl">
-			<!-- button -->
-			<a href="#" class="btn btn-default btn-instagram">@Katen on Instagram</a>
-			<!-- images -->
-			<div class="instagram-feed d-flex flex-wrap">
-				<div class="insta-item col-sm-2 col-6 col-md-2">
-					<a href="#">
-						<img src="{% static 'images/insta/insta-1.jpg' %}" />
-					</a>
-				</div>
-				<div class="insta-item col-sm-2 col-6 col-md-2">
-					<a href="#">
-						<img src="{% static 'images/insta/insta-2.jpg' %}" />
-					</a>
-				</div>
-				<div class="insta-item col-sm-2 col-6 col-md-2">
-					<a href="#">
-						<img src="{% static 'images/insta/insta-3.jpg' %}" />
-					</a>
-				</div>
-				<div class="insta-item col-sm-2 col-6 col-md-2">
-					<a href="#">
-						<img src="{% static 'images/insta/insta-4.jpg' %}" />
-					</a>
-				</div>
-				<div class="insta-item col-sm-2 col-6 col-md-2">
-					<a href="#">
-						<img src="{% static 'images/insta/insta-5.jpg' %}" />
-					</a>
-				</div>
-				<div class="insta-item col-sm-2 col-6 col-md-2">
-					<a href="#">
-						<img src="{% static 'images/insta/insta-6.jpg' %}" />
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
 {% endblock %}

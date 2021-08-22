@@ -1,251 +1,224 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en-US">
+<html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>{% block title %}
-	
-	{% endblock %}</title>
-	<meta name="description" content="Mulazimet">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
+    <meta charset="utf-8">
 
-	<!-- STYLES -->
-	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-	<link rel="stylesheet" href="{% static 'css/all.min.css' %}">
-	<link rel="stylesheet" href="{% static 'css/slick.css' %}">
-	<link rel="stylesheet" href="{% static 'css/simple-line-icons.css' %}">
-	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}{% endblock %}</title>
 
-	<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
 
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
+    <link rel="icon" href="{% static 'images/favicon.png' %}">
+
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js}"></script><![endif]-->
+    <!--[if lt IE 9]><script src="{% static 'js/respond.js' %}"></script><![endif]-->
+    <style>
+        .rtl {
+            direction: rtl;
+        }
+
+        .ltr {
+            direction: ltr;
+        }
+    </style>
 </head>
 
-<body>
-
-<!-- preloader -->
-<div id="preloader">
-	<div class="book">
-		<div class="inner">
-			<div class="left"></div>
-			<div class="middle"></div>
-			<div class="right"></div>
-		</div>
-		<ul>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
-	</div>
-</div>
-
-<!-- site wrapper -->
-<div class="site-wrapper">
-
-	<div class="main-overlay"></div>
-
-	<!-- header -->
-	<header class="header-default">
-		<nav class="navbar navbar-expand-lg">
-			<div class="container-xl">
-				<!-- site logo -->
-				<a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}"></a>
+<body data-anm=".anm">
 
 
-				<div class="collapse navbar-collapse">
-					<!-- menus -->
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item dropdown active">
-							<a class="nav-link dropdown-toggle" href="index.html">Home</a>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="index.html">Magazine</a></li>
-								<li><a class="dropdown-item" href="personal.html">Personal</a></li>
-								<li><a class="dropdown-item" href="personal-alt.html">Personal Alt</a></li>
-								<li><a class="dropdown-item" href="minimal.html">Minimal</a></li>
-								<li><a class="dropdown-item" href="classic.html">Classic</a></li>
-							</ul>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="category.html">Lifestyle</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="category.html">Inspiration</a>
-						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#">Pages</a>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="category.html">Category</a></li>
-								<li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li>
-								<li><a class="dropdown-item" href="blog-single-alt.html">Blog Single Alt</a></li>
-								<li><a class="dropdown-item" href="about.html">About</a></li>
-								<li><a class="dropdown-item" href="contact.html">Contact</a></li>
-							</ul>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="contact.html">Contact</a>
-						</li>
-					</ul>
-				</div>
+<div class="page-wrapper rtl">
 
-				<!-- header right section -->
-				<div class="header-right">
-					<!-- social icons -->
-					<ul class="social-icons list-unstyled list-inline mb-0">
-						<li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fab fa-medium"></i></a></li>
-						<li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
-					</ul>
-					<!-- header buttons -->
-					<div class="header-buttons">
-						<button class="search icon-button">
-							<i class="icon-magnifier"></i>
-						</button>
-						<button class="burger-menu icon-button">
-							<span class="burger-icon"></span>
-						</button>
-                        <a href="">
-                        <img src="{{ author.image.url }}">{{ author.username }}
+    <!-- Preloader -->
+    <div class="preloader"></div>
+
+    <!-- Main Header-->
+    <header class="main-header">
+
+        <!-- Main box -->
+        <div class="main-box">
+            <!--Nav Outer -->
+            <div class="nav-outer">
+                <div class="logo-box">
+                    <div class="logo"><a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}"></a></div>
+                </div>
+
+                <nav class="nav main-menu">
+                    <ul class="navigation" id="navbar">
+                        <li class="current">
+                            <a href="{% url 'index' %}"><span style="font-size: 1.3rem">باشبەت</span></a>
+
+                        </li>
 
 
-</a>
-					</div>
-				</div>
-			</div>
-		</nav>
-	</header>
+                        <!-- Only for Mobile View -->
+                        <li class="mm-add-listing">
 
-{% block content %}
+                            <span>
+                                <span class="contact-info">
+                                    <span class="phone-num"><span>Call us</span><a
+                                            href="tel:1234567890">123 456 7890</a></span>
+                                    <span class="address">329 Queensberry Street, North Melbourne VIC <br>3051, Australia.</span>
+                                    <a href="mailto:support@superio.com" class="email">support@superio.com</a>
+                                </span>
+                                <span class="social-links">
+                                    <a href="#"><span class="fab fa-facebook-f"></span></a>
+                                    <a href="#"><span class="fab fa-twitter"></span></a>
+                                    <a href="#"><span class="fab fa-instagram"></span></a>
+                                    <a href="#"><span class="fab fa-linkedin-in"></span></a>
+                                </span>
+                            </span>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- Main Menu End-->
+            </div>
 
-{% endblock %}
+            <div class="outer-box">
+                <!-- Login/Register -->
 
-	<!-- footer -->
-	<footer>
-		<div class="container-xl">
-			<div class="footer-inner">
-				<div class="row d-flex align-items-center gy-4">
-					<!-- copyright text -->
-					<div class="col-md-4">
-						<span class="copyright">© 2021 Katen. Template by ThemeGer.</span>
-					</div>
+                {% if author %}
 
-					<!-- social icons -->
-					<div class="col-md-4 text-center">
-						<ul class="social-icons list-unstyled list-inline mb-0">
-							<li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-							<li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-							<li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-							<li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
-							<li class="list-inline-item"><a href="#"><i class="fab fa-medium"></i></a></li>
-							<li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
-						</ul>
-					</div>
 
-					<!-- go to top button -->
-					<div class="col-md-4">
-						<a href="#" id="return-to-top" class="float-md-end"><i class="icon-arrow-up"></i>Back to Top</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
 
-</div><!-- end site wrapper -->
+                    <nav class="nav main-menu">
+                        <ul class="navigation" id="navbar">
 
-<!-- search popup area -->
-<div class="search-popup">
-	<!-- close button -->
-	<button type="button" class="btn-close" aria-label="Close"></button>
-	<!-- content -->
-	<div class="search-content">
-		<div class="text-center">
-			<h3 class="mb-4 mt-0">Press ESC to close</h3>
-		</div>
-		<!-- form -->
-		<form class="d-flex search-form">
-			<input class="form-control me-2" type="search" placeholder="Search and press enter ..." aria-label="Search">
-			<button class="btn btn-default btn-lg" type="submit"><i class="icon-magnifier"></i></button>
-		</form>
-	</div>
-</div>
+                            <li class="dropdown">
+                                <img style="max-height: 2rem" src="{{ author.image.url }}" class="thumb">
+                                <span>{{ author.username }}</span>
+                                <ul>
+                                    <li><a href="{% url 'logout' %}">چىكىنىش</a></li>
 
-<!-- canvas menu -->
-<div class="canvas-menu d-flex align-items-end flex-column">
-	<!-- close button -->
-	<button type="button" class="btn-close" aria-label="Close"></button>
+                                </ul>
+                            </li>
 
-	<!-- logo -->
-	<div class="logo">
-		<img src="{% static 'images/logo.svg' %}" />
-	</div>
 
-	<!-- menu -->
-	<nav>
-		<ul class="vertical-menu">
-			<li class="active">
-				<a href="index.html">Home</a>
-				<ul class="submenu">
-					<li><a href="index.html">Magazine</a></li>
-					<li><a href="personal.html">Personal</a></li>
-					<li><a href="personal-alt.html">Personal Alt</a></li>
-					<li><a href="minimal.html">Minimal</a></li>
-					<li><a href="classic.html">Classic</a></li>
-				</ul>
-			</li>
-			<li><a href="category.html">Lifestyle</a></li>
-			<li><a href="category.html">Inspiration</a></li>
-			<li>
-				<a href="#">Pages</a>
-				<ul class="submenu">
-					<li><a href="category.html">Category</a></li>
-					<li><a href="blog-single.html">Blog Single</a></li>
-					<li><a href="blog-single-alt.html">Blog Single Alt</a></li>
-					<li><a href="about.html">About</a></li>
-					<li><a href="contact.html">Contact</a></li>
-				</ul>
-			</li>
-			<li><a href="contact.html">Contact</a></li>
-		</ul>
-	</nav>
+                            <!-- Only for Mobile View -->
+                            <li class="mm-add-listing">
+                                <a href="add-listing.html" class="theme-btn btn-style-one">Job Post</a>
+                                <span>
+                                    <span class="contact-info">
+                                        <span class="phone-num"><span>Call us</span><a href="tel:1234567890">123 456 7890</a></span>
+                                        <span class="address">329 Queensberry Street, North Melbourne VIC <br>3051, Australia.</span>
+                                        <a href="mailto:support@superio.com" class="email">support@superio.com</a>
+                                    </span>
+                                    <span class="social-links">
+                                        <a href="#"><span class="fab fa-facebook-f"></span></a>
+                                        <a href="#"><span class="fab fa-twitter"></span></a>
+                                        <a href="#"><span class="fab fa-instagram"></span></a>
+                                        <a href="#"><span class="fab fa-linkedin-in"></span></a>
+                                    </span>
+                                </span>
+                            </li>
+                        </ul>
+                    </nav>
 
-	<!-- social icons -->
-	<ul class="social-icons list-unstyled list-inline mb-0 mt-auto w-100">
-		<li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-		<li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-		<li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
-		<li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
-		<li class="list-inline-item"><a href="#"><i class="fab fa-medium"></i></a></li>
-		<li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
-	</ul>
-</div>
+                {% else %}
+                    <a href="{% url 'login' %}" class="theme-btn btn-style-three">كىرىڭ / تىزىملىتىڭ</a>
+                {% endif %}
 
-<!-- JAVA SCRIPTS -->
-<script src="{% static 'js/jquery.min.js' %}"></script>
+            </div>
+        </div>
+
+        <!-- Mobile Header -->
+        <div class="mobile-header">
+            <div class="logo"><a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}"></a></div>
+
+            <!--Nav Box-->
+            <div class="nav-outer clearfix">
+
+                <div class="outer-box">
+                    <!-- Login/Register -->
+                    <div class="login-box">
+                        <a href="login-popup.html" class="call-modal"><span class="icon-user"></span></a>
+                    </div>
+
+                    <a href="#nav-mobile" class="mobile-nav-toggler"><span class="flaticon-menu-1"></span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div id="nav-mobile"></div>
+    </header>
+    <!--End Main Header -->
+    {% block content %}
+
+
+
+    {% endblock %}
+
+
+
+
+
+    <footer class="main-footer">
+        <div class="auto-container">
+            <!--Widgets Section-->
+            <div class="widgets-section wow fadeInUp">
+                <div class="row">
+                    <div class="big-column col-xl-4 col-lg-3 col-md-12">
+                        <div class="footer-column about-widget">
+                            <div class="logo"><a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}"></a></div>
+                            <p class="phone-num"><span>ئالاقىلىشىڭ</span><a href="thebeehost@support.com">123 456
+                                7890</a>
+                            </p>
+                            <p class="address">Istanul/Sefaköy<br><a
+                                    href="mailto:support@superio.com" class="email">support@superio.com</a></p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <!--Bottom-->
+        <div class="footer-bottom">
+            <div class="auto-container">
+                <div class="outer-box">
+                    <div class="copyright-text">2021 ©<a href="#"></a> كودۋاز گۇرۇپپىسى</div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll To Top -->
+        <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
+    </footer>
+    <!-- End Main Footer -->
+
+
+</div><!-- End Page Wrapper -->
+
+
+<script src="{% static 'js/jquery.js' %}"></script>
 <script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/chosen.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/slick.min.js' %}"></script>
-<script src="{% static 'js/jquery.sticky-sidebar.min.js' %}"></script>
-<script src="{% static 'js/custom.js' %}"></script>
+<script src="{% static 'js/jquery.fancybox.js' %}"></script>
+<script src="{% static 'js/jquery.modal.min.js' %}"></script>
+<script src="{% static 'js/mmenu.polyfills.js' %}"></script>
+<script src="{% static 'js/mmenu.js' %}"></script>
+<script src="{% static 'js/appear.js' %}"></script>
+<script src="{% static 'js/anm.min.js' %}"></script>
+<script src="{% static 'js/owl.js' %}"></script>
+<script src="{% static 'js/wow.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
 
 </body>
 </html>
