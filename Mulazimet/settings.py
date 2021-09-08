@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-z%lzkm7oq56r#rch%j-#cf@%ye3ajhv&e5qf*ur6x=qf70rq*w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -38,7 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Mulazimet',
     'blog',
-    'authentication'
+    'authentication',
+    'froala_editor',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
@@ -82,6 +88,28 @@ DATABASES = {
     }
 }
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend'
+]
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
+SITE_ID = 2
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -121,7 +149,32 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_PUBLIC_DIR = '/static/'
+STATIC_PUBLIC_URL = '/static/'
+STATIC_DIR = '/static/'
+FROALA_UPLOAD_PATH = 'media/froala_editor/images'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+FROALA_EDITOR_PLUGINS = ('align', 'char_counter', 'code_beautifier', 'code_view', 'colors', 'emoticons',
+                         'entities', 'font_size', 'fullscreen', 'image_manager', 'image',
+                         'link', 'quick_insert',
+                         'save', 'table', 'print',
+                         'url', 'getPDF')
+
+FROALA_EDITOR_OPTIONS = {
+    'direction': 'rtl',
+    'placeholderText': 'مەزمۇن كىرگۈزۈڭ',
+    'heightMin': 400,
+    'language': 'ug',
+    'attribution': False,
+}
+
+FRAOLA_EDITOR_THIRD_PARTY = ('image_aviary', 'spell_checker')
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '78092777144-vsn1bjgnrv7updp14lfonbcl5vd1sitl.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'k2LHUaJaYWD7synF3pNLqM7J'
+

@@ -19,7 +19,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('',include("blog.urls")),
-    path('',include('authentication.urls'))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path('admin/', admin.site.urls),
+                  path('', include("blog.urls")),
+                  path('', include('authentication.urls')),
+                  path('froala_editor/', include('froala_editor.urls')),
+                  path('accounts/', include('allauth.urls')),
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

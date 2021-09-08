@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-{% load socialaccount %}
-
 {% load static %}
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Mulazimet | كىرىش</title>
+    <title>Mulazimet | تىزىملىتىش</title>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
@@ -53,10 +51,11 @@
                                                  src="{% static 'images/logo.png' %}" alt=""></a>
 
                 <div class="form-inner">
-                    <h3 style="text-align: center">ئەزا كىرىش</h3>
+                    <h3 style="text-align: center">ئەزا تىزىملىتىش</h3>
+                    <br>
                     {% if messages %}
                         {% for message in messages %}
-                            <div class="message-box error rtl">
+                            <div class="message-box {{ message.tags }} rtl">
                                 <button style="right: 31rem" class="close-btn"><span class="close_icon"></span></button>
                                 <p>{{ message|safe }} </p>
 
@@ -80,26 +79,18 @@
                             <input id="password-field" type="password" name="password" value="" placeholder="پارول">
                         </div>
 
-                        <div class="form-group">
-                            <div class="field-outer">
-                                <div class="input-group checkboxes square">
-                                    <input type="checkbox" name="remember-me" value="" id="remember">
-
-                                </div>
-                                <a href="#" class="pwd">پارولنى ئۇنۇتتىڭىزمۇ؟</a>
-                            </div>
-                        </div>
+                        <br>
 
                         <div class="form-group">
-                            <button class="theme-btn btn-style-one" type="submit" name="log-in">كىرىش</button>
+                            <button class="theme-btn btn-style-one" type="submit" name="log-in">تىزىملىتىش</button>
                         </div>
                     </form>
-
                     <div class="bottom-box">
-                        <div class="text">سىز تېخى ئەزا ئەمەسمۇ؟<a href="{% url 'register' %}"><u
-                                style="color: blue"> تىزىملىتىڭ </u></a></div>
+                        <div class="text">سىز ئاللىبۇرۇن ئەزامۇ؟<a href="{% url 'login' %}"><u
+                                style="color: blue"> كىرىڭ </u></a></div>
 
                     </div>
+
                 </div>
             </div>
             <!--End Login Form -->

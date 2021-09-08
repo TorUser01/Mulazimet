@@ -1,0 +1,240 @@
+{% extends 'dashboard/dashboard_base.html' %}
+
+{% block title %}
+    ئەزا مەلۇماتى | {{ authors.username }}
+{% endblock %}
+
+
+{% block content %}
+
+    <style>
+        .rtl {
+            direction: rtl;
+            text-align: right;
+        }
+
+        .ltr {
+            direction: ltr;
+        }
+    </style>
+
+
+    <!-- Dashboard -->
+    <section class="user-dashboard rtl">
+        <div class="dashboard-outer">
+            <div class="upper-title-box">
+                <h3><span class="colored">{{ authors.username }}</span> مەلۇماتى</h3>
+                {{ messages|safe }}
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Ls widget -->
+                    <div class="ls-widget">
+                        <div class="tabs-box">
+
+
+                            <div class="widget-content">
+                                <br>
+                                <form class="default-form" action="{% url 'dashboard' authors.id %}" method="post" enctype="multipart/form-data">
+
+                                    <div class="uploading-outer">
+                                        <div class="uploadButton">
+                                            <input class="uploadButton-input" type="file" name="image"
+                                                   accept="image/*, application/pdf" id="upload">
+                                            <label class="uploadButton-button ripple-effect" for="upload">رەسىم
+                                                ئۆزگەرتىش</label>
+                                            <span class="uploadButton-file-name"></span>
+                                        </div>
+                                        <div class="text">1 مىگابايتتىن تۆۋەن بولۇشى كېرەك.
+                                        </div>
+                                    </div>
+
+
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <!-- Input -->
+                                        <div class="form-group col-lg-6 col-md-12">
+                                            <label>ئەزا نامى</label>
+                                            <input type="text" name="username" value="{{ this_author.username }}">
+                                        </div>
+
+                                        <!-- Input -->
+                                        <div class="form-group col-lg-6 col-md-12">
+                                            <label>ئېلخەت ئادرېسى</label>
+                                            <input type="text" name="email" value="{{ this_author.email }}">
+                                        </div>
+
+                                        <!-- Input -->
+                                        <div class="form-group col-lg-6 col-md-12">
+                                            <label>يېشى</label>
+                                            <input type="number" name="age" value="{{ this_author.age }}">
+                                        </div>
+                                        <!-- Input -->
+                                        <div class="form-group col-lg-6 col-md-12">
+                                            <label>تېلۇن نۇمۇرى</label>
+                                            <input type="text" name="phone" value="{{ this_author.phone }}">
+                                        </div>
+
+                                        <!-- Input -->
+                                        <div class="form-group col-lg-6 col-md-12">
+                                            <label>ئورنى</label>
+                                            <input type="text" name="location" value="{{ this_author.location }}">
+                                        </div>
+
+                                        <!-- Input -->
+                                        <div class="form-group col-lg-6 col-md-12">
+                                            <label>خىزمىتى</label>
+                                            <input type="text" name="work" value="{{ this_author.work }}">
+                                        </div>
+
+
+                                        <!-- Input -->
+                                        <div style="direction: ltr!important; text-align: left"
+                                             class="form-group col-lg-6 col-md-12 ltr">
+                                            <div style="text-align: right!important;">
+                                                <label>مائارىپ سەۋىيەسى</label>
+                                            </div>
+                                            <select class="chosen-select ltr" name="education">
+                                                {% for education in educations %}
+
+                                                    <option {% if education == this_author.education %}
+                                                        selected{% endif %}  value="{{ education.id }}">
+                                                        <p>{{ education.title }}    </p></option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+
+                                        <!-- Input -->
+                                        <div style="direction: ltr!important; text-align: left"
+                                             class="form-group col-lg-6 col-md-12 ltr">
+                                            <div style="text-align: right!important;">
+                                                <label>تەجىربىسى</label>
+                                            </div>
+                                            <select class="chosen-select ltr" name="experience">
+                                                {% for i in '0123456789101111111111111'|make_list %}
+
+                                                    <option {% if forloop.counter == this_author.experience %}
+                                                        selected{% endif %}
+                                                        value="{{ forloop.counter }}">{{ forloop.counter }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+
+
+                                        <!-- Search Select -->
+                                        <div class="form-group col-lg-6 col-md-12">
+                                            <label>بىلىدىغان تىللار</label>
+                                            <select data-placeholder="Categories" class="chosen-select multiple"
+                                                    multiple name="languages">
+
+
+                                                {% for l in languages %}
+
+                                                    <option value="{{ l.id }}">{{ l.title }}</option>
+                                                {% endfor %}
+
+
+
+                                            </select>
+                                        </div>
+                                        <!-- Search Select -->
+                                        <div class="form-group col-lg-6 col-md-12">
+                                            <label>ئالاھىدىلىكى</label>
+                                            <select data-placeholder="Categories" class="chosen-select multiple"
+                                                    multiple="" tabindex="{{ this_author.languages.count }}"
+                                                    name="skills">
+
+
+                                                {% for skill in skills %}
+
+                                                    <option value="{{ skill.id }}">{{ skill.title }}</option>
+                                                {% endfor %}
+
+
+
+                                                {% for s in this_author.skills.all %}
+
+                                                    <option selected
+                                                            value="{{ s.id }}">{{ s.title }}</option>
+                                                {% endfor %}
+
+
+                                            </select>
+                                        </div>
+
+
+                                        <!-- Input -->
+                                        <div class="form-group col-lg-6 col-md-12">
+                                            <label>قىسقىچە تونۇشتۇرلىشى</label>
+                                            <input type="text" name="short_bio" value="{{ this_author.short_bio }}">
+                                        </div>
+
+                                        <!-- About Company -->
+                                        <div class="form-group col-lg-12 col-md-12">
+                                            <label>تونۇشتۇرلىشى</label>
+                                            <textarea name="bio">{{ this_author.bio }}</textarea>
+                                        </div>
+
+
+
+
+
+
+
+{% comment %}
+
+                                        <div class="tabs-box">
+                                            <div class="widget-title">
+                                                <h4>ئىجتىمائىي ئالاقە</h4>
+                                            </div>
+
+                                            <div class="widget-content">
+
+                                                <div class="row">
+                                                    <!-- Input -->
+                                                    <div class="form-group col-lg-6 col-md-10">
+                                                        <label>Facebook</label>
+                                                        <input type="text" name="social_media.facebook"
+                                                               placeholder="www.facebook.com/...">
+                                                    </div>
+
+                                                    <!-- Input -->
+                                                    <div class="form-group col-lg-6 col-md-10">
+                                                        <label>Instagram</label>
+                                                        <input type="text" name="social_media" placeholder="www.facebook.com/...">
+                                                    </div>
+
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+{% endcomment %}
+
+
+
+
+
+
+                                    </div>
+                                    <div class="form-group col-lg-6 col-md-12">
+                                        <input class="theme-btn btn-style-one" type="submit" value="ساقلاش">
+
+                                        </input>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <!-- End Dashboard -->
+
+{% endblock %}

@@ -1,0 +1,121 @@
+{% extends 'dashboard/dashboard_base.html' %}
+
+{% block title %}
+    ئېلانلىرىم | {{ authors.username }}
+{% endblock %}
+
+{% block content %}
+
+    <style>
+        .rtl {
+            direction: rtl;
+            text-align: right;
+        }
+
+        .ltr {
+            direction: ltr;
+        }
+    </style>
+
+    <!-- Dashboard -->
+    <section class="user-dashboard">
+        <br><br>
+        <div class="dashboard-outer">
+            <div class="upper-title-box">
+                <h3>{{ authors.username }}</h3>
+                <div class="text">{{ authors.short_bio }}</div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <!-- applicants Widget -->
+                    <div class="applicants-widget ls-widget">
+                        <div class="widget-title">
+                            <h4>ئېلانلىرىم</h4>
+
+                            <div class="chosen-outer">
+
+                                <!--Tabs Box-->
+                                <div class="chosen-container chosen-container-single chosen-container-single-nosearch chosen-container-active"
+                                     style="width: 100%;" title=""><a href="{% url 'add_article' %}"
+                                                                      class="chosen-single"
+                                                                      tabindex="-1"><i class="fa fa-plus"
+                                                                                       style="text-align: center"></i>
+                                </a></div>
+
+                            </div>
+                        </div>
+                        <div class="widget-content">
+
+                            {% for author_article in author_articles.all %}
+
+
+
+                                <!-- Candidate block three -->
+                                <div class="candidate-block-three">
+                                    <div class="inner-box">
+                                        <div class="content col-md-6 col-lg-10">
+                                            <figure class="image"><a
+                                                    href="{% url 'article_detail' author_article.id %}"><img
+                                                    src="{{ author_article.image.url }}" alt=""></a>
+                                            </figure>
+                                            <h4 class="name"><a
+                                                    href="{% url 'article_detail' author_article.id %}">{{ author_article.title }}</a>
+                                            </h4>
+                                            <br>
+                                            <ul class="candidate-info">
+                                                <li class="designation">{{ author_article.category.name }}</li>
+                                                <li>{{ author_article.datetime|date:'Y-m-d H:i' }}</li>
+
+                                                <li><span
+                                                        class="icon flaticon-money"></span>${{ author_article.cost_from }}-
+                                                    ${{ author_article.cost_to }}</li>
+                                            </ul>
+
+                                        </div>
+                                        <div class="option-box">
+                                            <!-- Dashboard Option -->
+                                            <div class="dropdown resume-action">
+
+
+                                                <td>
+                                                    <div class="option-box">
+                                                        <ul class="option-list">
+                                                            <li>
+                                                                <a href="{% url 'article_detail' author_article.id %}"
+                                                                   data-text="كۆرۈش"><span
+                                                                        class="la la-eye"></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="{% url 'update_article' author_article.id %}"
+                                                                   data-text="تەھرىرلەش"><span
+                                                                        class="la la-pencil"></span></a>
+                                                            </li>
+                                                            <li>
+
+                                                                <a href="{% url 'delete_article' author_article.id %}"
+                                                                   data-text="ئۆچۈرۈش"><span
+                                                                        class="la la-trash"></span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Dashboard -->
+
+
+{% endblock %}

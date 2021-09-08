@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}
+
+    {% endblock %}
+    </title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}">
+    <link rel="icon" href="{% static 'images/favicon.png' %}">
+
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--[if lt IE 9]>
+    <script https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="{% static 'js/respond.js' %}"></script><![endif]-->
+
+    <style>
+        .rtl {
+            direction: rtl;
+            text-align: right;
+        }
+
+        .ltr {
+            direction: ltr;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+<div class="page-wrapper dashboard rtl  ">
+
+    <!-- Preloader -->
+    <div class="preloader"></div>
+
+    <!-- Header Span -->
+    <span class="header-span"></span>
+
+    <!-- Main Header-->
+    <header class="main-header header-shaddow">
+        <div class="container-fluid">
+            <!-- Main box -->
+            <div class="main-box">
+                <!--Nav Outer -->
+                <div class="nav-outer">
+                    <div class="logo-box">
+                        <div class="logo"><a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}"></a>
+                        </div>
+                    </div>
+
+                    <nav class="nav main-menu">
+                        <ul class="navigation" id="navbar">
+
+
+
+                            <!-- Only for Mobile View -->
+                            <li class="mm-add-listing">
+                                <a href="add-listing.html" class="theme-btn btn-style-one">Job Post</a>
+                                <span>
+                                    <span class="contact-info">
+                                        <span class="phone-num"><span>Call us</span><a href="tel:1234567890">123 456 7890</a></span>
+                                        <span class="address">329 Queensberry Street, North Melbourne VIC <br>3051, Australia.</span>
+                                        <a href="mailto:codewazlar.com" class="email">codewazlar.com</a>
+                                    </span>
+                                    <span class="social-links">
+                                        <a href="#"><span class="fab fa-facebook-f"></span></a>
+                                        <a href="#"><span class="fab fa-twitter"></span></a>
+                                        <a href="#"><span class="fab fa-instagram"></span></a>
+                                        <a href="#"><span class="fab fa-linkedin-in"></span></a>
+                                    </span>
+                                </span>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- Main Menu End-->
+                </div>
+
+                <div class="outer-box">
+
+
+                    <!-- Dashboard Option -->
+                    <div class="dropdown dashboard-option">
+                        <a href="{% url 'author_detail' authors.id %}" role="button" aria-expanded="false">
+                            <img style="max-height: 3rem" src="{{ authors.image.url }}">
+                            {{ authors.username }}
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Header -->
+        <div class="mobile-header">
+            <div class="logo"><a href="index.html"><img src="{% static 'images/logo.png' %}"></a></div>
+
+            <!--Nav Box-->
+            <div class="nav-outer clearfix">
+
+                <div class="outer-box">
+
+
+                    {% if authors %}
+                        <a id="toggle-user-sidebar"><img style="max-height: 2rem" src="{{ authors.image.url }}">
+                        </a>
+                        <a href="#nav-mobile" class="mobile-nav-toggler navbar-trigger"><span
+                                class="flaticon-menu-1"></span></a>
+
+
+                    {% else %}
+
+                        <!-- Login/Register -->
+                        <div class="login-box">
+                            <a href="{% url 'login' %}" class="call-modal"><span class="icon-user"></span></a>
+                        </div>
+
+
+
+                    {% endif %}
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Mobile Nav -->
+        <div id="nav-mobile"></div>
+    </header>
+    <!--End Main Header -->
+
+    <!-- Sidebar Backdrop -->
+    <div class="sidebar-backdrop"></div>
+
+    <!-- User Sidebar -->
+    <div class="user-sidebar">
+
+        <div class="sidebar-inner">
+            <ul class="navigation">
+                <li><a href="{% url 'author_articles' authors.id %}"><i class="la la-paper-plane"></i> ئېلانلىرىم </a>
+                </li>
+                <li><a href="{% url 'dashboard' authors.id %}"><i class="la la-user-tie"></i> ئەزا مەلۇماتى </a></li>
+                <li><a href=""><i class="la la-lock"></i>پارول ئۆزگەرتىش</a></li>
+
+                <li><a href="{% url 'logout' %}"><i class="la la-sign-out"></i>چىكىنىش</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- End User Sidebar -->
+
+    {% block content %}
+
+
+    {% endblock %}
+
+    <!-- Copyright -->
+    <div class="copyright-text">
+        <p> 2021 © كودۋازلار</p>
+    </div>
+
+</div><!-- End Page Wrapper -->
+
+
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/chosen.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery-ui.min.js' %}"></script>
+<script src="{% static 'js/jquery.fancybox.js' %}"></script>
+<script src="{% static 'js/jquery.modal.min.js' %}"></script>
+<script src="{% static 'js/mmenu.polyfills.js' %}"></script>
+<script src="{% static 'js/mmenu.js' %}"></script>
+<script src="{% static 'js/appear.js' %}"></script>
+<script src="{% static 'js/owl.js' %}"></script>
+<script src="{% static 'js/wow.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+
+<!-- Chart.js // documentation: http://www.chartjs.org/docs/latest/ -->
+<script src="{% static 'js/chart.min.js' %}"></script>
+<script>
+    Chart.defaults.global.defaultFontFamily = "Sofia Pro";
+    Chart.defaults.global.defaultFontColor = '#888';
+    Chart.defaults.global.defaultFontSize = '14';
+
+    var ctx = document.getElementById('chart').getContext('2d');
+
+    var chart = new Chart(ctx, {
+
+        type: 'line',
+        // The data for our dataset
+        data: {
+            labels: ["January", "February", "March", "April", "May", "June"],
+            // Information about the dataset
+            datasets: [{
+                label: "Views",
+                backgroundColor: 'transparent',
+                borderColor: '#1967D2',
+                borderWidth: "1",
+                data: [196, 132, 215, 362, 210, 252],
+                pointRadius: 3,
+                pointHoverRadius: 3,
+                pointHitRadius: 10,
+                pointBackgroundColor: "#1967D2",
+                pointHoverBackgroundColor: "#1967D2",
+                pointBorderWidth: "2",
+            }]
+        },
+
+        // Configuration options
+        options: {
+
+            layout: {
+                padding: 10,
+            },
+
+            legend: {display: false},
+            title: {display: false},
+
+            scales: {
+                yAxes: [{
+                    scaleLabel: {
+                        display: false
+                    },
+                    gridLines: {
+                        borderDash: [6, 10],
+                        color: "#d8d8d8",
+                        lineWidth: 1,
+                    },
+                }],
+                xAxes: [{
+                    scaleLabel: {display: false},
+                    gridLines: {display: false},
+                }],
+            },
+
+            tooltips: {
+                backgroundColor: '#333',
+                titleFontSize: 13,
+                titleFontColor: '#fff',
+                bodyFontColor: '#fff',
+                bodyFontSize: 13,
+                displayColors: false,
+                xPadding: 10,
+                yPadding: 10,
+                intersect: false
+            }
+        },
+    });
+
+</script>
+
+</body>
+</html>
+
+
+

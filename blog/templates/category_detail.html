@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-
+    Mulazimet | {{ category.name }}
 {% endblock %}
 
 
@@ -19,6 +19,7 @@
 
     <!--Page Title-->
     <section class="page-title">
+        <br><br>
         <div class="auto-container">
             <div class="title-outer">
                 <h1>{{ category.name }}</h1>
@@ -57,7 +58,7 @@
                                             <li>
                                                 <a href="{% url 'article_detail' article.id %}">{{ article.datetime|date:'Y-m-d H:i' }}</a>
                                             </li>
-                                            <li><a href="{% url 'article_detail' article.id %}"><span><img
+                                            <li><a href="{% url 'author_detail' article.author.id %}"><span><img
                                                     style="max-height: 1.5rem;border-radius: 0.4rem"
                                                     src="{{ article.author.image.url }}"
                                                     alt=""></span> {{ article.author.username }} </a></li>
@@ -73,16 +74,7 @@
 
 
                         {% endfor %}
-                        <!-- Pagination -->
-                        <nav class="ls-pagination">
-                            <ul>
-                                <li class="prev"><a href="#"><i class="fa fa-arrow-left"></i></a></li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#" class="current-page">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li class="next"><a href="#"><i class="fa fa-arrow-right"></i></a></li>
-                            </ul>
-                        </nav>
+
                     </div>
                 </div>
 
@@ -92,19 +84,6 @@
 
                         <!-- Recent Post -->
                         <div class="sidebar-widget search-widget">
-                            <div class="sidebar-title"><h4>ئىزدەش</h4></div>
-
-                            <!--search box-->
-                            <div class="search-box">
-                                <form method="post" action="blog.html">
-                                    <div class="form-group">
-                                        <span class="icon flaticon-search-1"></span>
-                                        <input type="search" name="search-field" value="" placeholder="ئاچقۇچلۇق سۆز"
-                                               required="">
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
 
 
                         <!-- Recent Post -->
@@ -117,7 +96,7 @@
 
 
 
-                                    <article class="post rtl">
+                                    <div class="post rtl">
                                         <div class="post-thumb"><a href="{% url 'article_detail' r.id %}"><img
                                                 src="{{ r.image.url }}"
                                                 alt=""></a></div>
@@ -128,12 +107,12 @@
                                         </a>
 
                                         <div class="post-info">{{ r.author.username }}</div>
-                                    </article>
+                                    </div>
 
                                     </div>
-                                    </div>
+
                                 {% endfor %}
-
+                        </div>
                     </aside>
                 </div>
             </div>

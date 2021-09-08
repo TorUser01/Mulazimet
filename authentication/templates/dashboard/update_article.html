@@ -1,0 +1,153 @@
+{% extends 'dashboard/dashboard_base.html' %}
+{% load static %}
+{% block title %}
+    ئېلان قوشۇش | {{ authors.username }}
+{% endblock %}
+
+
+{% block content %}
+
+
+    <style xmlns="http://www.w3.org/1999/html">
+        .rtl {
+            direction: rtl;
+            text-align: right;
+        }
+
+        .ltr {
+            direction: ltr;
+        }
+    </style>
+
+    <!-- Dashboard -->
+    <section class="user-dashboard">
+
+        <div class="dashboard-outer">
+            <div class="upper-title-box">
+                <h3>ئېلان يېڭىلاش</h3>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Ls widget -->
+                    <div class="ls-widget">
+                        <div class="tabs-box">
+                            <div class="widget-title">
+
+                            </div>
+
+                            <div class="widget-content">
+
+
+                                <form class="default-form" method="post" action="{% url 'update_article' article.id %}"
+                                      enctype="multipart/form-data">
+
+                                    {% csrf_token %}
+                                    <div class="row">
+
+
+                                        <div class="uploading-outer">
+                                            <div class="uploadButton">
+                                                <input id="image" class="uploadButton-input" type="file"
+                                                       value="{{ article.image.url }}" name="image"
+                                                       accept="image/*, application/pdf"
+                                                >
+
+
+                                                <label onclick="document.getElementById('image').click();"
+                                                       class="uploadButton-button ripple-effect"
+                                                       for="upload"> رەسىم
+                                                </label>
+
+
+                                                <span class="uploadButton-file-name"></span>
+                                            </div>
+                                            <div class="text">1 مىگابايتتىن تۆۋەن بولىشى كېرەك
+                                            </div>
+                                        </div>
+
+
+                                        <!-- Input -->
+                                        <div class="form-group  col-lg-6 col-md-12">
+                                            <label>ئېلان ماۋزۇسى</label>
+                                            <input type="text" name="title" placeholder="ماۋزۇسى" required
+                                                   value="{{ article.title }}">
+                                        </div>
+
+                                        <div class="form-group  col-lg-3 col-md-12">
+                                            <label>ئېلان باھاسى (دىن)</label>
+                                            <input type="text" name="cost_from" placeholder="₺"
+                                                   value="{{ article.cost_from }}">
+                                        </div>
+
+                                        <div class="form-group  col-lg-3 col-md-12">
+                                            <label>ئېلان باھاسى(غىچە)</label>
+                                            <input type="text" name="cost_to" placeholder="₺"
+                                                   value="{{ article.cost_to }}">
+                                        </div>
+
+                                        <div class="form-group  col-lg-3 col-md-12">
+                                            <label>تەخمىنىي ۋاقتى</label>
+                                            <input type="number" name="time" maxlength="2" required
+                                                   value="{{ article.time }}">
+                                        </div>
+
+                                        <div style="direction: ltr!important; text-align: left"
+                                             class="form-group col-lg-3 col-md-12">
+                                            <div style="text-align: right!important;">
+                                                <label>ۋاقىت بىرلىكى</label>
+                                            </div>
+                                            <div style="padding-top: 0.5rem">
+
+                                                <select class="chosen-select" name="time_type" required>
+                                                    {% for time_type in time_types %}
+                                                        <option value="{{ time_type.id }}">{{ time_type.title }}</option>
+                                                    {% endfor %}
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <div style="direction: ltr!important; text-align: left"
+                                             class="form-group col-lg-6 col-md-12">
+                                            <div style="text-align: right!important;">
+                                                <label>كاتېگورىيسى</label>
+                                            </div>
+                                            <div style="padding-top: 0.5rem">
+
+                                                <select class="chosen-select" name="category" required>
+                                                    {% for category in categorys %}
+                                                        <option value="{{ category.id }}">{{ category.name }}</option>
+                                                    {% endfor %}
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <!-- About Company -->
+                                        <div class="form-group col-lg-12 col-md-12 sample">
+                                            {{ content_form.media }}
+                                            {{ content_form }}
+                                        </div>
+
+
+                                    </div>
+
+                                    <input type="submit" class="theme-btn btn-style-one" value="يېڭىلاش">
+                                    <br><br>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <!-- End Dashboard -->
+
+
+{% endblock %}
