@@ -1,0 +1,1 @@
+web: gunicorn Mulazimet.wsgi --log-file -
